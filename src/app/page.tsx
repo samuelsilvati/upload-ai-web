@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-xl font-bold">upload.ai</h1>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-muted-foreground text-sm">
+          <span className="text-muted-foreground hidden text-sm md:block">
             Desenvolvido com 💜 na NLW da Rocketseat
           </span>
           <Separator orientation="vertical" className="h-6" />
@@ -25,9 +25,9 @@ export default function Home() {
           <ModeToggle />
         </div>
       </div>
-      <main className="flex flex-1 gap-6 p-6">
+      <main className="flex flex-1 flex-col-reverse gap-6 p-6 md:flex-row">
         <div className="flex flex-1 flex-col gap-4">
-          <div className="grid flex-1 grid-rows-2 gap-4">
+          <div className="grid h-96 grid-rows-2 gap-4 md:flex-1">
             <Textarea
               className="resize-none p-5 leading-relaxed"
               placeholder="Inclua o prompt para a IA..."
@@ -45,7 +45,7 @@ export default function Home() {
             prompr para adicionar o conteúdo da transcrição do vídeo selecionado
           </p>
         </div>
-        <aside className=" w-full space-y-6 md:w-80">
+        <aside className="w-full space-y-6 md:w-80">
           <FormVideo />
 
           <Separator />
@@ -60,6 +60,9 @@ export default function Home() {
           </Button>
         </aside>
       </main>
+      <footer className="text-muted-foreground mt-3 w-full border-t py-6 text-center text-sm md:hidden">
+        Desenvolvido com 💜 na NLW da Rocketseat
+      </footer>
     </div>
   )
 }
