@@ -26,8 +26,8 @@ export default function Home() {
       <main className="flex flex-1 gap-6 p-6">
         <div className="flex flex-1 flex-col gap-4">
           <div className="grid flex-1 grid-rows-2 gap-4">
-            <Textarea />
-            <Textarea />
+            <Textarea className="resize-none" />
+            <Textarea readOnly className="resize-none" />
           </div>
 
           <p className="text-muted-foreground text-sm">
