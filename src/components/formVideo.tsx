@@ -11,7 +11,7 @@ function FormVideo() {
     <form className="space-y-6">
       <label
         htmlFor="video"
-        className="text-muted-foreground hover:bg-primary/5 flex aspect-video cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed text-sm transition-colors"
+        className="flex aspect-video cursor-pointer flex-col items-center justify-center gap-2 rounded-md border border-dashed text-sm text-muted-foreground transition-colors hover:bg-primary/5"
       >
         <FileVideo className="h-4 w-4" />
         Selecione um vídeo

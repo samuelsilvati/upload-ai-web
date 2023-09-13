@@ -36,7 +36,7 @@ function FormPrompt() {
             <SelectItem value="gpt3.5">GPT 3.5-turbo 16k</SelectItem>
           </SelectContent>
         </Select>
-        <span className="text-muted-foreground block text-xs italic">
+        <span className="block text-xs italic text-muted-foreground">
           Você poderá customizar essa opção em breve
         </span>
       </div>
@@ -47,7 +47,7 @@ function FormPrompt() {
         <Label>Temperatura</Label>
         <Slider min={0} max={1} step={0.1} />
 
-        <span className="text-muted-foreground block text-xs italic leading-relaxed">
+        <span className="block text-xs italic leading-relaxed text-muted-foreground">
           Valores mais altos tendem a deixar o resultado mais criativo e com
           possíveis erros
         </span>

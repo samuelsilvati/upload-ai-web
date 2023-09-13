@@ -14,7 +14,7 @@ export default function Home() {
           <h1 className="text-xl font-bold">upload.ai</h1>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-muted-foreground hidden text-sm md:block">
+          <span className="hidden text-sm text-muted-foreground md:block">
             Desenvolvido com 💜 na NLW da Rocketseat
           </span>
           <Separator orientation="vertical" className="h-6" />
@@ -39,7 +39,7 @@ export default function Home() {
             />
           </div>
 
-          <p className="text-muted-foreground text-sm">
+          <p className="text-sm text-muted-foreground">
             Lembre se: você poe utilizar a variável{' '}
             <code className="text-violet-400">{'{transcription}'}</code> no seu
             prompr para adicionar o conteúdo da transcrição do vídeo selecionado
@@ -60,7 +60,7 @@ export default function Home() {
           </Button>
         </aside>
       </main>
-      <footer className="text-muted-foreground mt-3 w-full border-t py-6 text-center text-sm md:hidden">
+      <footer className="mt-3 w-full border-t py-6 text-center text-sm text-muted-foreground md:hidden">
         Desenvolvido com 💜 na NLW da Rocketseat
       </footer>
     </div>
