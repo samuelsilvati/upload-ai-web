@@ -40,9 +40,9 @@ export default function Home() {
           </div>
 
           <p className="text-sm text-muted-foreground">
-            Lembre se: você poe utilizar a variável{' '}
+            Lembre se: você pode utilizar a variável{' '}
             <code className="text-violet-400">{'{transcription}'}</code> no seu
-            prompr para adicionar o conteúdo da transcrição do vídeo selecionado
+            prompt para adicionar o conteúdo da transcrição do vídeo selecionado
           </p>
         </div>
         <aside className="w-full space-y-6 md:w-80">
