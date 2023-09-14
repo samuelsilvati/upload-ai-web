@@ -10,11 +10,20 @@ import {
 import { Separator } from './ui/separator'
 import { Slider } from './ui/slider'
 
+interface FormPromptProps {
+  temperature: number
+  setTemperature: React.Dispatch<React.SetStateAction<number>>
+}
+
 export interface PromptSelectProps {
   onPromptSelected: (template: string) => void
 }
 
-function FormPrompt({ onPromptSelected }: PromptSelectProps) {
+function FormPrompt({
+  onPromptSelected,
+  temperature,
+  setTemperature,
+}: PromptSelectProps & FormPromptProps) {
   // const [temperature, setTemperature] = useState(0.5)
   return (
     <form className="space-y-6">
@@ -42,7 +51,13 @@ function FormPrompt({ onPromptSelected }: PromptSelectProps) {
 
       <div className="space-y-4">
         <Label>Temperatura</Label>
-        <Slider min={0} max={1} step={0.1} />
+        <Slider
+          min={0}
+          max={1}
+          step={0.1}
+          value={[temperature]}
+          onValueChange={(value) => setTemperature(value[0])}
+        />
 
         <span className="block text-xs italic leading-relaxed text-muted-foreground">
           Valores mais altos tendem a deixar o resultado mais criativo e com

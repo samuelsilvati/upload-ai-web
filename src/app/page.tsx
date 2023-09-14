@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+
 import FormPrompt from '@/components/form-prompt'
 import FormVideo from '@/components/form-video'
 import { ModeToggle } from '@/components/mode-toggle'
@@ -7,6 +11,17 @@ import { Textarea } from '@/components/ui/textarea'
 import { Github, Wand } from 'lucide-react'
 
 export default function Home() {
+  const [temperature, setTemperature] = useState(0.5)
+  const [videoId, setVideoId] = useState<string | null>(null)
+
+  const promptProps = {
+    temperature,
+    setTemperature,
+  }
+
+  function handlePromptSelected(template: string) {
+    console.log(template)
+  }
   return (
     <div className="flex min-h-screen flex-col">
       <div className="flex items-center justify-between border-b px-6 py-3">
@@ -46,11 +61,14 @@ export default function Home() {
           </p>
         </div>
         <aside className="w-full space-y-6 md:w-80">
-          <FormVideo />
+          <FormVideo onVideoUploaded={setVideoId} />
 
           <Separator />
 
-          <FormPrompt />
+          <FormPrompt
+            {...promptProps}
+            onPromptSelected={handlePromptSelected}
+          />
 
           <Separator />
 

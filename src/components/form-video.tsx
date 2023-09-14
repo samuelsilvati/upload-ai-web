@@ -26,7 +26,11 @@ const statusMessages = {
   success: 'Sucesso!',
 }
 
-function FormVideo() {
+interface FormVideoProps {
+  onVideoUploaded: (id: string) => void
+}
+
+function FormVideo(props: FormVideoProps) {
   const [videoFile, setVideoFile] = useState<File | null>(null)
   const [status, setStatus] = useState<Status>('waiting')
   const promptInputRef = useRef<HTMLTextAreaElement>(null)
@@ -107,7 +111,7 @@ function FormVideo() {
 
     setStatus('success')
 
-    console.log('Finish transcription')
+    props.onVideoUploaded(videoId)
   }
 
   const previewUrl = UseMemo(() => {
