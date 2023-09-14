@@ -1,4 +1,4 @@
-'use client'
+import PromptSelect from './prompt-select'
 import { Label } from './ui/label'
 import {
   Select,
@@ -10,20 +10,17 @@ import {
 import { Separator } from './ui/separator'
 import { Slider } from './ui/slider'
 
-function FormPrompt() {
+export interface PromptSelectProps {
+  onPromptSelected: (template: string) => void
+}
+
+function FormPrompt({ onPromptSelected }: PromptSelectProps) {
+  // const [temperature, setTemperature] = useState(0.5)
   return (
     <form className="space-y-6">
       <div className="space-y-2">
         <Label>Prompt</Label>
-        <Select>
-          <SelectTrigger>
-            <SelectValue placeholder="Selecione um prompt..." />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="title">Título do YouTube</SelectItem>
-            <SelectItem value="description">Descrição do Youtube</SelectItem>
-          </SelectContent>
-        </Select>
+        <PromptSelect onPromptSelected={onPromptSelected} />
       </div>
 
       <div className="space-y-2">
