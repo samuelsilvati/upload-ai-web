@@ -46,7 +46,7 @@ function FormVideo(props: FormVideoProps) {
   }
 
   async function convertVideoToAudio(video: File) {
-    console.log('Convert started')
+    // console.log('Convert started')
 
     const ffmpeg = await getFFmpeg()
 
@@ -54,9 +54,9 @@ function FormVideo(props: FormVideoProps) {
 
     // ffmpeg.on('log', (log) => console.log(log))
 
-    ffmpeg.on('progress', (progress) =>
-      console.log('Convert progress:' + Math.round(progress.progress * 100)),
-    )
+    // ffmpeg.on('progress', (progress) =>
+    //   console.log('Convert progress:' + Math.round(progress.progress * 100)),
+    // )
 
     await ffmpeg.exec([
       '-i',
@@ -77,7 +77,7 @@ function FormVideo(props: FormVideoProps) {
       type: 'audio/mpeg',
     })
 
-    console.log('Convert finished')
+    // console.log('Convert finished')
 
     return audioFile
   }
