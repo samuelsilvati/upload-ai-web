@@ -8,7 +8,8 @@ import { ModeToggle } from '@/components/mode-toggle'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Textarea } from '@/components/ui/textarea'
-import { Github, Wand } from 'lucide-react'
+import { useCompletion } from 'ai/react'
+import { Github } from 'lucide-react'
 
 export default function Home() {
   const [temperature, setTemperature] = useState(0.5)
@@ -19,9 +20,27 @@ export default function Home() {
     setTemperature,
   }
 
-  function handlePromptSelected(template: string) {
-    console.log(template)
-  }
+  // function handlePromptSelected(template: string) {
+  //   console.log(template)
+  // }
+
+  const {
+    input,
+    setInput,
+    handleInputChange,
+    handleSubmit,
+    completion,
+    isLoading,
+  } = useCompletion({
+    api: `${process.env.NEXT_PUBLIC_API_URL}/ai/complete`,
+    body: {
+      videoId,
+      temperature,
+    },
+    headers: {
+      'Content-type': 'application/json',
+    },
+  })
   return (
     <div className="flex min-h-screen flex-col">
       <div className="flex items-center justify-between border-b px-6 py-3">
@@ -46,11 +65,14 @@ export default function Home() {
             <Textarea
               className="resize-none p-5 leading-relaxed"
               placeholder="Inclua o prompt para a IA..."
+              value={input}
+              onChange={handleInputChange}
             />
             <Textarea
               readOnly
               className="resize-none p-5 leading-relaxed"
               placeholder="Resultado gerado pela IA..."
+              value={completion}
             />
           </div>
 
@@ -67,15 +89,10 @@ export default function Home() {
 
           <FormPrompt
             {...promptProps}
-            onPromptSelected={handlePromptSelected}
+            onPromptSelected={setInput}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
           />
-
-          <Separator />
-
-          <Button type="submit" className="w-full">
-            Executar
-            <Wand className="ml-2 h-4 w-4" />
-          </Button>
         </aside>
       </main>
       <footer className="mt-3 w-full border-t py-6 text-center text-sm text-muted-foreground md:hidden">
