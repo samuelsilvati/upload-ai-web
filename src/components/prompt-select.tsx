@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { api } from '@/lib/axios'
+import axios from 'axios'
 
 import { PromptSelectProps } from './form-prompt'
 import {
@@ -21,7 +21,7 @@ function PromptSelect(props: PromptSelectProps) {
   const [prompts, setPrompts] = useState<Prompt[] | null>(null)
 
   useEffect(() => {
-    api.get('/prompts').then((response) => setPrompts(response.data))
+    axios.get('/api').then((response) => setPrompts(response.data))
   }, [])
 
   function handlePromptSelected(prompId: string) {
